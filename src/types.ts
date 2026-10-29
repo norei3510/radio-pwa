@@ -14,6 +14,7 @@ export type RadioItem = {
   url: string;
   createdAt: string;
   playlistId: string;
+  sourceUrl?: string;
 };
 
 export type PlaybackPrefs = {

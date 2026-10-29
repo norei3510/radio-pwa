@@ -12,15 +12,15 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: 'Radio Desk',
         short_name: 'Radio Desk',
-        description: '公開MP3リンクをローカル保存して流せる個人用ラジオPWA',
-        start_url: '/',
+        description: '3番組の新着音源を自動で蓄積するラジオPWA',
+        start_url: './',
         display: 'standalone',
         background_color: '#f4efe6',
         theme_color: '#f4efe6',
         lang: 'ja',
         icons: [
           {
-            src: '/icons/icon.svg',
+            src: 'icons/icon.svg',
             sizes: 'any',
             type: 'image/svg+xml',
             purpose: 'any',

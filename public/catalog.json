@@ -1,0 +1,260 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-29T03:09:46.369Z",
+  "playlists": [
+    {
+      "id": "tokumei",
+      "name": "匿名ラジオ"
+    },
+    {
+      "id": "watch",
+      "name": "オモコロウォッチ"
+    },
+    {
+      "id": "mongol",
+      "name": "モンゴルナイトフィーバー"
+    }
+  ],
+  "items": [
+    {
+      "id": "41591c148d65fa8f038373ae",
+      "title": "【539】ARuFa・恐山の匿名ラジオ「雑学をぶつけ合え！大うんちくバトル！！」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/5to39u.mp3",
+      "createdAt": "2026-10-28T15:00:46.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/595617/"
+    },
+    {
+      "id": "56bc7b4d657380063f076f3e",
+      "title": "ニュース！オモコロウォッチ！192「捨てる神あれば拾う神あり（どちらも犯罪です）」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch192.mp3",
+      "createdAt": "2026-10-24T15:00:04.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/595010/"
+    },
+    {
+      "id": "afe0f432eb7f30a6725b1fda",
+      "title": "【335】ラジオ・モンゴルナイトフィーバー  「これからの『良品週間』の話をしよう」",
+      "url": "https://omocoro.heteml.net/radio/mongol/335/20261024.mp3",
+      "createdAt": "2026-10-23T18:31:50.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/595028/"
+    },
+    {
+      "id": "42b6cfab60ec4689e3228af0",
+      "title": "【538】ARuFa・恐山の匿名ラジオ「恐山が子どもから大人気になる方法を模索しよう！」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/538.mp3",
+      "createdAt": "2026-10-21T15:00:25.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/594707/"
+    },
+    {
+      "id": "923e7f350aa18ac8b7eea528",
+      "title": "ニュース！オモコロウォッチ！191「80億分の1のしっこ達」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch191.mp3",
+      "createdAt": "2026-10-17T15:00:41.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/594065/"
+    },
+    {
+      "id": "1ff028374de8dc655a1bf22a",
+      "title": "【334】ラジオ・モンゴルナイトフィーバー  「オープンカーでむきだしの落語・海へ」",
+      "url": "https://omocoro.heteml.net/radio/mongol/334/20261017.mp3",
+      "createdAt": "2026-10-16T15:00:21.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/594090/"
+    },
+    {
+      "id": "0b20aff66371eaba38075fa3",
+      "title": "【537】ARuFa・恐山の匿名ラジオ「『若い頃は無茶した』の無茶の最低ラインって何だと思う？」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/5onn37.mp3",
+      "createdAt": "2026-10-14T15:09:58.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/593876/"
+    },
+    {
+      "id": "353808b8f8612a31605189ca",
+      "title": "ニュース！オモコロウォッチ！190「チエクラベ」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch190.mp3",
+      "createdAt": "2026-10-10T15:00:28.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/593301/"
+    },
+    {
+      "id": "a713830c64dcebef352fd061",
+      "title": "【333】ラジオ・モンゴルナイトフィーバー  「この井戸枯れとるやん！！！！！！！！！」",
+      "url": "https://omocoro.heteml.net/radio/mongol/333/20261010.mp3",
+      "createdAt": "2026-10-09T15:00:48.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/593239/"
+    },
+    {
+      "id": "9b3631e9792570b4791ae746",
+      "title": "【536】ARuFa・恐山の匿名ラジオ「俺達は『江戸っ子』になりた～～～い！！」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/536oh.mp3",
+      "createdAt": "2026-10-07T15:00:16.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/592996/"
+    },
+    {
+      "id": "c0ab04cfa96144d832069876",
+      "title": "ニュース！オモコロウォッチ！189「セメシコは抜けません!!」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch189.mp3",
+      "createdAt": "2026-10-03T15:00:33.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/592373/"
+    },
+    {
+      "id": "fe6d258d4af4e9e48e175b22",
+      "title": "【332】ラジオ・モンゴルナイトフィーバー  「マッドキャッツ〜これが山口の牙や〜」",
+      "url": "https://omocoro.heteml.net/radio/mongol/332/20261003.mp3",
+      "createdAt": "2026-10-02T15:00:53.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/592355/"
+    },
+    {
+      "id": "fdc9c106b1d144a2aadc5c19",
+      "title": "【535】ARuFa・恐山の匿名ラジオ「もし地球の全人類と友達だったら何が起こるか考えよう【80億】」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/535y.mp3",
+      "createdAt": "2026-09-30T15:00:07.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/592283/"
+    },
+    {
+      "id": "69493f0227738b2ae20f54d3",
+      "title": "ニュース！オモコロウォッチ！188「耳毛…生えそめし頃に…」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch188.mp3",
+      "createdAt": "2026-09-26T15:00:45.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/591816/"
+    },
+    {
+      "id": "4d1d8d4199993df1d5b93287",
+      "title": "【331】ラジオ・モンゴルナイトフィーバー  「漫画のキャラをコストコに連れて行こうよ」",
+      "url": "https://omocoro.heteml.net/radio/mongol/331/20260926.mp3",
+      "createdAt": "2026-09-25T15:00:36.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/591793/"
+    },
+    {
+      "id": "b47d04c971fac5432390a1b0",
+      "title": "【534】ARuFa・恐山の匿名ラジオ「喫茶店を開くならどんなお店にする！？」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/it53a4.mp3",
+      "createdAt": "2026-09-23T15:00:00.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/591589/"
+    },
+    {
+      "id": "904641113cac24c3e6e8ee3b",
+      "title": "ニュース！オモコロウォッチ！187「”盗賊の極意” ～コーン茶ありませんか？～」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch187.mp3",
+      "createdAt": "2026-09-19T15:00:39.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/591331/"
+    },
+    {
+      "id": "f70cd7d40add1c5c6cd7f2e8",
+      "title": "【330】ラジオ・モンゴルナイトフィーバー  「思春期の中年の前に現れた生ハム」",
+      "url": "https://omocoro.heteml.net/radio/mongol/330/20260919.mp3",
+      "createdAt": "2026-09-18T15:00:10.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/591338/"
+    },
+    {
+      "id": "48de76b7ffe7b7434ef15241",
+      "title": "【533】ARuFa・恐山の匿名ラジオ「じつは『自慢』って難しい！スネ夫を見習ってみよう！」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/53as3.mp3",
+      "createdAt": "2026-09-16T15:00:30.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/591116/"
+    },
+    {
+      "id": "e11a22a369e300c5d4554adc",
+      "title": "ニュース！オモコロウォッチ！186「遊ちゃん先生のキャナダ ペラってペラってSP!!!」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch186.mp3",
+      "createdAt": "2026-09-12T15:00:06.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/590202/"
+    },
+    {
+      "id": "8fdfe9dbc52ba9f9f03c4a60",
+      "title": "【329】ラジオ・モンゴルナイトフィーバー  「それぞれが聴いた曲とその心」",
+      "url": "https://omocoro.heteml.net/radio/mongol/329/20260912.mp3",
+      "createdAt": "2026-09-11T15:00:32.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/590160/"
+    },
+    {
+      "id": "e95b5f177a3ede4349f289af",
+      "title": "【532】ARuFa・恐山の匿名ラジオ「秘蔵公開！カットされた雑談集（恐山海外旅行中につき）」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/532.mp3",
+      "createdAt": "2026-09-09T15:00:16.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/589959/"
+    },
+    {
+      "id": "fe4864f6e0faf0a371b68573",
+      "title": "ニュース！オモコロウォッチ！185「編集は一度覚えるとクセになりそうで」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch185.mp3",
+      "createdAt": "2026-09-05T15:00:25.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/589230/"
+    },
+    {
+      "id": "49b528c8cf306278d3b0677b",
+      "title": "【328】ラジオ・モンゴルナイトフィーバー  「Let&#8217;s go」",
+      "url": "https://omocoro.heteml.net/radio/mongol/328/20260905.mp3",
+      "createdAt": "2026-09-04T20:01:22.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/589338/"
+    },
+    {
+      "id": "b3bf1e1cfda9839c4bf667d9",
+      "title": "【531】ARuFa・恐山の匿名ラジオ「友達っぽい敵『フレネミー』について話してたら脱線した夏」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/53a1s.mp3",
+      "createdAt": "2026-09-02T15:00:45.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/589050/"
+    },
+    {
+      "id": "52772e769da7136dc98752f6",
+      "title": "ニュース！オモコロウォッチ！184「ええぃ！セブンのコショウソバは化け物か！」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch184.mp3",
+      "createdAt": "2026-08-29T15:00:39.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/588621/"
+    },
+    {
+      "id": "8024231e4197f52176615d21",
+      "title": "【327】ラジオ・モンゴルナイトフィーバー  「山口のなんでだろう？なんでだろう？」",
+      "url": "https://omocoro.heteml.net/radio/mongol/327/20260829.mp3",
+      "createdAt": "2026-08-28T15:00:41.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/588617/"
+    },
+    {
+      "id": "150bddfd22b73b14b069f945",
+      "title": "【530】ARuFa・恐山の匿名ラジオ「あらゆる『名前』をよりしっくりくるネーミングに改名しよう！」",
+      "url": "https://omocoro.heteml.net/radio/tokumei/530m.mp3",
+      "createdAt": "2026-08-26T15:00:57.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/588387/"
+    },
+    {
+      "id": "537757ddf76be9eb8900e434",
+      "title": "ニュース！オモコロウォッチ！183「レッツゴー回帰組」",
+      "url": "https://omocoro.heteml.net/radio/watch/watch183.mp3",
+      "createdAt": "2026-08-22T15:00:54.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/587535/"
+    },
+    {
+      "id": "d02380cbf6adf2666b80fb1b",
+      "title": "【326】ラジオ・モンゴルナイトフィーバー  「モンゴルナイフから２つのエモご提案」",
+      "url": "https://omocoro.heteml.net/radio/mongol/326/20260822.mp3",
+      "createdAt": "2026-08-21T15:01:10.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/587499/"
+    }
+  ]
+}
