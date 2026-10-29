@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { PlaybackProgress } from './playback-progress';
 import {
   DEFAULT_PLAYLISTS,
   defaultItems,
@@ -112,6 +113,7 @@ function SeekForwardIcon() {
 
 export default function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const progressRef = useRef<PlaybackProgress | null>(null);
   const [items, setItems] = useState<RadioItem[]>(defaultItems);
   const [playlists, setPlaylists] = useState<Playlist[]>(DEFAULT_PLAYLISTS);
   const [prefs, setPrefs] = useState<PlaybackPrefs>(defaultPrefs);
@@ -168,6 +170,21 @@ export default function App() {
   );
 
   useEffect(() => {
+    if (!audioRef.current) return;
+    const progress = new PlaybackProgress(audioRef.current, {
+      storage: {
+        getItem: key => window.localStorage.getItem(key),
+        setItem: (key, value) => window.localStorage.setItem(key, value),
+      },
+      visibilityTarget: document,
+      pageTarget: window,
+      onError: () => setError('再生位置を保存できませんでした。端末のストレージ設定を確認してください。'),
+    });
+    progressRef.current = progress;
+    return () => { progress.dispose(); progressRef.current = null; };
+  }, []);
+
+  useEffect(() => {
     let cancelled = false;
 
     void loadAppData()
@@ -180,6 +197,8 @@ export default function App() {
         setPlaylists(data.playlists);
         setPrefs(data.prefs);
         setActiveId(data.prefs.lastPlayedByPlaylist[data.prefs.selectedPlaylistId] ?? null);
+        const remembered = data.items.find(item => item.id === data.prefs.lastPlayedByPlaylist[data.prefs.selectedPlaylistId]);
+        setCurrentTime(remembered ? progressRef.current?.getPosition(remembered) ?? 0 : 0);
         setHydrated(true);
       })
       .catch(() => {
@@ -409,8 +428,9 @@ export default function App() {
     setStatusText('読み込み中');
 
     if (audio.src !== item.url) {
+      const position = progressRef.current?.prepare(item) ?? 0;
       audio.src = item.url;
-      setCurrentTime(0);
+      setCurrentTime(position);
       setDuration(0);
     }
 
@@ -460,11 +480,13 @@ export default function App() {
   }
 
   function switchPlaylist(playlistId: string) {
+    progressRef.current?.release();
     audioRef.current?.pause();
     setQueue([]);
     audioRef.current?.removeAttribute('src');
     audioRef.current?.load();
-    setCurrentTime(0);
+    const remembered = items.find(item => item.id === prefs.lastPlayedByPlaylist[playlistId]);
+    setCurrentTime(remembered ? progressRef.current?.getPosition(remembered) ?? 0 : 0);
     setDuration(0);
     setActiveId(prefs.lastPlayedByPlaylist[playlistId] ?? null);
     setPlaybackState('paused');
@@ -479,6 +501,7 @@ export default function App() {
     }
 
     audio.currentTime = value;
+    progressRef.current?.capture(true);
     setCurrentTime(value);
   }
 
@@ -490,6 +513,7 @@ export default function App() {
 
     const nextTime = Math.max(0, Math.min(audio.currentTime + delta, Number.isFinite(audio.duration) ? audio.duration : audio.currentTime + delta));
     audio.currentTime = nextTime;
+    progressRef.current?.capture(true);
     setCurrentTime(nextTime);
   }
 
@@ -511,6 +535,7 @@ export default function App() {
       <p className="catalog-note">3番組の音源を自動更新 · URLの登録は不要です</p>
       {error && <p role="alert">{error}</p>}
       <p role="status">{isOffline ? 'オフライン：音声の再生には通信が必要です' : statusText}</p>
+      {duration === 0 && currentTime > 0 && <p>続きは{formatTime(currentTime)}から再生できます</p>}
       <main className="main-grid">
         <div className="tab-content-scroll">
           {activeTab === 'player' ? (
@@ -562,6 +587,7 @@ export default function App() {
                       <button
                         type="button"
                         className="station-main"
+                        disabled={!hydrated}
                         onClick={() => {
                           void startPlayback(item.id);
                         }}
@@ -638,7 +664,7 @@ export default function App() {
               type="button"
               className="secondary icon-button"
               onClick={playPrevious}
-              disabled={selectedItems.length === 0}
+              disabled={!hydrated || selectedItems.length === 0}
               aria-label="前へ"
             >
               <PreviousIcon />
@@ -653,7 +679,7 @@ export default function App() {
                   void resumePlayback();
                 }
               }}
-              disabled={selectedItems.length === 0}
+              disabled={!hydrated || selectedItems.length === 0}
               aria-label={playbackState === 'playing' ? '一時停止' : '再生'}
             >
               {playbackState === 'playing' ? <PauseIcon /> : <PlayIcon />}
@@ -662,7 +688,7 @@ export default function App() {
               type="button"
               className="secondary icon-button"
               onClick={playNext}
-              disabled={selectedItems.length === 0}
+              disabled={!hydrated || selectedItems.length === 0}
               aria-label="次へ"
             >
               <NextIcon />
