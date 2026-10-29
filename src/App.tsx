@@ -128,8 +128,10 @@ export default function App() {
   const [duration, setDuration] = useState(0);
   const [isDockExpanded, setIsDockExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [visibleCount, setVisibleCount] = useState(100);
   const activeTab = 'player';
   const selectedPlaylistId = prefs.selectedPlaylistId;
+  useEffect(() => { setVisibleCount(100); }, [selectedPlaylistId, searchQuery, prefs.sortMode]);
   const selectedPlaylist =
     playlists.find((playlist) => playlist.id === selectedPlaylistId) ?? playlists[0] ?? DEFAULT_PLAYLISTS[0];
   const selectedItems = useMemo(
@@ -542,6 +544,7 @@ export default function App() {
               </section>
 
               <section className="panel list-panel">
+                <p>{selectedPlaylist.name}：全{selectedItems.length}回{searchQuery && `（検索結果 ${filteredSelectedItems.length}回）`}</p>
                 <div className="search-bar">
                   <input
                     type="text"
@@ -551,7 +554,7 @@ export default function App() {
                   />
                 </div>
                 <div className="station-list">
-                  {filteredSelectedItems.map((item) => (
+                  {filteredSelectedItems.slice(0, visibleCount).map((item) => (
                     <article
                       key={item.id}
                       className={`station-card ${item.id === activeId ? 'is-active' : ''}`}
@@ -570,6 +573,7 @@ export default function App() {
                   ))}
                 </div>
                 {filteredSelectedItems.length === 0 && <p>該当する音源がありません。</p>}
+                {filteredSelectedItems.length > visibleCount && <button type="button" className="secondary" onClick={() => setVisibleCount(count => count + 100)}>さらに100回を表示（残り{filteredSelectedItems.length - visibleCount}回）</button>}
               </section>
             </>
           ) : (

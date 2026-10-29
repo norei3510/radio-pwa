@@ -19,3 +19,15 @@ test('過去回を保持し、同じ記事のURL訂正を更新する', () => {
 test('空フィード、不正XML、MP3なしを失敗として扱う', () => {
   for (const xml of ['<html>error</html>', '<rss>', feed('https://example.com/a.mp3')]) assert.throws(() => parseFeed(xml, programs[0]));
 });
+test('同じ記事の複数音源をすべて保持し、同じURLは重複させない', () => {
+  const xml = feed('https://omocoro.heteml.net/radio/a.mp3').replace('</item>', '<enclosure url="https://omocoro.heteml.net/radio/b.mp3"/><enclosure url="https://omocoro.heteml.net/radio/b.mp3?_=1"/></item>');
+  const items = parseFeed(xml, programs[0]);
+  assert.equal(items.length, 2);
+  assert.notEqual(items[0].id, items[1].id);
+  assert.equal(mergeCatalog(items, items).length, 2);
+  assert.equal(mergeCatalog(items, [{ ...items[1], url: 'https://omocoro.heteml.net/radio/correct.mp3' }]).length, 2);
+});
+test('WordPressタイトル内のHTML文字参照を表示用に復元する', () => {
+  const xml = feed('https://omocoro.heteml.net/radio/a.mp3').replace('匿名ラジオ &amp; 第1回', 'Let&amp;#8217;s go');
+  assert.equal(parseFeed(xml, programs[0])[0].title, 'Let’s go');
+});
