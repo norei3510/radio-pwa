@@ -1,5 +1,7 @@
-import catalog from '../public/catalog.json';
 import { PlaybackPrefs, Playlist, RadioItem } from './types';
+
+declare const __RADIO_CATALOG__: { version: number; playlists: Playlist[]; items: RadioItem[] };
+const catalog = __RADIO_CATALOG__;
 
 export const DEFAULT_PLAYLISTS: Playlist[] = catalog.playlists;
 export const defaultItems: RadioItem[] = catalog.items;

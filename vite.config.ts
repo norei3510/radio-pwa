@@ -1,8 +1,12 @@
 import { defineConfig } from 'vite';
+import { readFileSync } from 'node:fs';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ mode }) => ({
+  define: {
+    __RADIO_CATALOG__: readFileSync(new URL('./public/catalog.json', import.meta.url), 'utf8'),
+  },
   base: mode === 'production' ? '/radio-pwa/' : '/',
   plugins: [
     react(),
