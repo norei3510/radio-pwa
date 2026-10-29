@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "catalog:update": "node scripts/update-catalog.mjs",
+    "catalog:backfill": "node scripts/backfill-catalog.mjs",
     "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
