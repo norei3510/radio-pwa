@@ -111,6 +111,51 @@ function SeekForwardIcon() {
   );
 }
 
+function SearchIcon() {
+  return (
+    <IconBase>
+      <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path d="m15.5 15.5 4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <IconBase>
+      <path d="M7 7l10 10M17 7 7 17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function ExternalIcon() {
+  return (
+    <IconBase>
+      <path d="M14 5h5v5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M19 5l-8 8" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M17 13.5V18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </IconBase>
+  );
+}
+
+function ChevronUpIcon() {
+  return (
+    <IconBase>
+      <path d="m7 14 5-5 5 5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </IconBase>
+  );
+}
+
+function EqualizerIcon() {
+  return (
+    <IconBase>
+      <rect x="5" y="9" width="3" height="9" rx="1" fill="currentColor" />
+      <rect x="10.5" y="5" width="3" height="13" rx="1" fill="currentColor" />
+      <rect x="16" y="11" width="3" height="7" rx="1" fill="currentColor" />
+    </IconBase>
+  );
+}
+
 export default function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressRef = useRef<PlaybackProgress | null>(null);
@@ -131,7 +176,6 @@ export default function App() {
   const [isDockExpanded, setIsDockExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(100);
-  const activeTab = 'player';
   const selectedPlaylistId = prefs.selectedPlaylistId;
   useEffect(() => { setVisibleCount(100); }, [selectedPlaylistId, searchQuery, prefs.sortMode]);
   const selectedPlaylist =
@@ -528,92 +572,198 @@ export default function App() {
     return `${minutes}:${String(seconds).padStart(2, '0')}`;
   }
 
+  const progressRatio = duration > 0 ? Math.min(currentTime / duration, 1) : 0;
+  const statusTone = isOffline
+    ? 'is-offline'
+    : playbackState === 'playing'
+      ? 'is-playing'
+      : playbackState === 'loading'
+        ? 'is-loading'
+        : playbackState === 'error'
+          ? 'is-error'
+          : '';
+  const trackMeta = !activeItem
+    ? '下の一覧から聴きたい回を選んでください'
+    : duration > 0
+      ? `${formatTime(currentTime)} / ${formatTime(duration)}`
+      : currentTime > 0
+        ? `続きは${formatTime(currentTime)}から再生できます`
+        : '再生ボタンで聴けます';
+  const playerDisabled = !hydrated || selectedItems.length === 0;
+
   return (
     <div className="app-shell">
       <audio ref={audioRef} preload="none" />
 
-      <p className="catalog-note">3番組の音源を自動更新 · URLの登録は不要です</p>
-      {error && <p role="alert">{error}</p>}
-      <p role="status">{isOffline ? 'オフライン：音声の再生には通信が必要です' : statusText}</p>
-      {duration === 0 && currentTime > 0 && <p>続きは{formatTime(currentTime)}から再生できます</p>}
+      <header className="app-header">
+        <div className="app-heading">
+          <h1 className="app-title">Radio Desk</h1>
+          <p className="catalog-note">3番組の音源を自動更新</p>
+        </div>
+        <p role="status" className={`status-chip ${statusTone}`}>
+          <span className="status-dot" aria-hidden="true" />
+          {isOffline ? 'オフライン' : statusText}
+        </p>
+      </header>
+
+      {isOffline && <p className="notice-banner">音声の再生には通信が必要です。通信が戻ると再生できます。</p>}
+      {error && (
+        <div role="alert" className="error-banner">
+          <p>{error}</p>
+          <button type="button" className="banner-close" onClick={() => setError('')} aria-label="エラーを閉じる">
+            <CloseIcon />
+          </button>
+        </div>
+      )}
+
       <main className="main-grid">
         <div className="tab-content-scroll">
-          {activeTab === 'player' ? (
-            <>
-              <section className="panel now-playing">
-                <div className="player-toolbar">
-                  <div className="player-toolbar-grid">
-                    <select aria-label="番組" className="playlist-select" value={selectedPlaylistId} onChange={event => switchPlaylist(event.target.value)}>
-                      {playlists.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
-                    </select>
-                    <select aria-label="再生順" className="playlist-select" value={prefs.sortMode} onChange={event => { setQueue([]); setPrefs(p => ({...p, sortMode: event.target.value as PlaybackPrefs['sortMode']})); }}>
-                      <option value="default">新しい順</option><option value="number_asc">古い順</option><option value="number_desc">番号が新しい順</option>
-                    </select>
-                  </div>
+          <section className="now-playing" aria-label="再生中">
+            <div className="playlist-rail" role="group" aria-label="番組">
+              {playlists.map((playlist) => (
+                <button
+                  key={playlist.id}
+                  type="button"
+                  className={`playlist-chip ${playlist.id === selectedPlaylistId ? 'is-active' : ''}`}
+                  aria-pressed={playlist.id === selectedPlaylistId}
+                  onClick={() => {
+                    if (playlist.id !== selectedPlaylistId) {
+                      switchPlaylist(playlist.id);
+                    }
+                  }}
+                >
+                  {playlist.name}
+                </button>
+              ))}
+            </div>
 
-                </div>
+            <div className="track-card">
+              <p className="track-eyebrow">{selectedPlaylist.name}</p>
+              <h2>{activeItem?.title ?? 'まだ選択されていません'}</h2>
+              <p className="track-meta">{trackMeta}</p>
+            </div>
+          </section>
 
-                <div className="track-card">
-                  <div className="track-card-header">
-                    <h2>{activeItem?.title ?? 'まだ選択されていません'}</h2>
-                    <button
-                      type="button"
-                      className={`toggle-button icon-only-button ${prefs.shuffle ? 'is-active' : ''}`}
-                      onClick={toggleShuffle}
-                      aria-label="シャッフル"
-                    >
-                      <ShuffleIcon />
-                    </button>
-                  </div>
-                </div>
-              </section>
+          <section className="list-panel" aria-labelledby="list-heading">
+            <div className="list-head">
+              <h2 id="list-heading" className="list-title">エピソード</h2>
+              <p className="count-chip">
+                全{selectedItems.length}回{searchQuery && ` · 該当${filteredSelectedItems.length}回`}
+              </p>
+            </div>
 
-              <section className="panel list-panel">
-                <p>{selectedPlaylist.name}：全{selectedItems.length}回{searchQuery && `（検索結果 ${filteredSelectedItems.length}回）`}</p>
-                <div className="search-bar">
+            <div className="list-tools">
+              <div className="search-field">
+                <label htmlFor="search-input" className="field-label">検索</label>
+                <div className="search-input-wrap">
+                  <SearchIcon />
                   <input
-                    type="text"
-                    placeholder="検索"
+                    id="search-input"
+                    type="search"
+                    enterKeyHint="search"
+                    placeholder="タイトルで探す"
                     value={searchQuery}
                     onChange={(event) => setSearchQuery(event.target.value)}
                   />
+                  {searchQuery && (
+                    <button type="button" className="search-clear" onClick={() => setSearchQuery('')} aria-label="検索をクリア">
+                      <CloseIcon />
+                    </button>
+                  )}
                 </div>
-                <div className="station-list">
-                  {filteredSelectedItems.slice(0, visibleCount).map((item) => (
-                    <article
-                      key={item.id}
-                      className={`station-card ${item.id === activeId ? 'is-active' : ''}`}
+              </div>
+              <div className="sort-field">
+                <label htmlFor="sort-select" className="field-label">並び順</label>
+                <select
+                  id="sort-select"
+                  className="sort-select"
+                  value={prefs.sortMode}
+                  onChange={(event) => {
+                    setQueue([]);
+                    setPrefs((p) => ({ ...p, sortMode: event.target.value as PlaybackPrefs['sortMode'] }));
+                  }}
+                >
+                  <option value="default">新しい順</option>
+                  <option value="number_asc">古い順</option>
+                  <option value="number_desc">番号が新しい順</option>
+                </select>
+              </div>
+            </div>
+
+            <ul className="station-list">
+              {filteredSelectedItems.slice(0, visibleCount).map((item) => {
+                const isActive = item.id === activeId;
+                const isPlayingItem = isActive && playbackState === 'playing';
+                return (
+                  <li key={item.id} className={`station-row ${isActive ? 'is-active' : ''}`}>
+                    <button
+                      type="button"
+                      className="station-main"
+                      disabled={!hydrated}
+                      aria-current={isActive ? 'true' : undefined}
+                      onClick={() => {
+                        void startPlayback(item.id);
+                      }}
                     >
-                      <button
-                        type="button"
-                        className="station-main"
-                        disabled={!hydrated}
-                        onClick={() => {
-                          void startPlayback(item.id);
-                        }}
+                      <span className="station-icon" aria-hidden="true">
+                        {isPlayingItem ? <EqualizerIcon /> : <PlayIcon />}
+                      </span>
+                      <span className="station-text">
+                        <strong className="station-title">{item.title}</strong>
+                        {isActive && (
+                          <span className="station-state">
+                            {isPlayingItem ? '再生中' : playbackState === 'loading' ? '読み込み中' : '選択中'}
+                          </span>
+                        )}
+                      </span>
+                    </button>
+                    {item.sourceUrl && (
+                      <a
+                        className="station-link"
+                        href={item.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${item.title}の公式記事を開く`}
                       >
-                        <strong>{item.title}</strong>
-                      </button>
-                      {item.sourceUrl && <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">公式記事</a>}
-                    </article>
-                  ))}
-                </div>
-                {filteredSelectedItems.length === 0 && <p>該当する音源がありません。</p>}
-                {filteredSelectedItems.length > visibleCount && <button type="button" className="secondary" onClick={() => setVisibleCount(count => count + 100)}>さらに100回を表示（残り{filteredSelectedItems.length - visibleCount}回）</button>}
-              </section>
-            </>
-          ) : (
-            <>
-              <p>音源一覧は自動更新されます。</p>
-            </>
-          )}
+                        <ExternalIcon />
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+
+            {filteredSelectedItems.length === 0 && (
+              <div className="empty-state">
+                {searchQuery ? (
+                  <>
+                    <p>「{searchQuery}」に一致する回はありません。別の言葉で探してください。</p>
+                    <button type="button" className="secondary" onClick={() => setSearchQuery('')}>
+                      検索をクリア
+                    </button>
+                  </>
+                ) : (
+                  <p>この番組の音源はまだありません。自動更新をお待ちください。</p>
+                )}
+              </div>
+            )}
+            {filteredSelectedItems.length > visibleCount && (
+              <button type="button" className="secondary more-button" onClick={() => setVisibleCount((count) => count + 100)}>
+                さらに100回を表示（残り{filteredSelectedItems.length - visibleCount}回）
+              </button>
+            )}
+          </section>
         </div>
       </main>
 
-      {activeTab === 'player' ? (
-        <div className="bottom-player-dock">
-          {isDockExpanded ? (
-            <div className="seekbar-block">
+      <div className="bottom-player-dock">
+        <div className="dock-panel">
+          <div className="dock-progress" aria-hidden="true">
+            <span style={{ transform: `scaleX(${progressRatio})` }} />
+          </div>
+
+          {isDockExpanded && (
+            <div className="seekbar-block" id="dock-expanded">
               <input
                 type="range"
                 min="0"
@@ -631,7 +781,7 @@ export default function App() {
               <div className="seekbar-actions">
                 <button
                   type="button"
-                  className="secondary icon-button seek-jump"
+                  className="secondary icon-button"
                   onClick={() => seekBy(-10)}
                   disabled={duration <= 0}
                   aria-label="10秒戻る"
@@ -640,7 +790,16 @@ export default function App() {
                 </button>
                 <button
                   type="button"
-                  className="secondary icon-button seek-jump"
+                  className={`toggle-button ${prefs.shuffle ? 'is-active' : ''}`}
+                  onClick={toggleShuffle}
+                  aria-pressed={prefs.shuffle}
+                >
+                  <ShuffleIcon />
+                  <span>シャッフル</span>
+                </button>
+                <button
+                  type="button"
+                  className="secondary icon-button"
                   onClick={() => seekBy(10)}
                   disabled={duration <= 0}
                   aria-label="10秒進む"
@@ -649,29 +808,38 @@ export default function App() {
                 </button>
               </div>
             </div>
-          ) : null}
-          <div className="control-cluster dock-compact">
+          )}
+
+          <div className="control-cluster">
             <button
               type="button"
               className="dock-title-button"
               onClick={() => setIsDockExpanded((current) => !current)}
               aria-expanded={isDockExpanded}
-              aria-label="シークバーを開閉"
+              aria-controls="dock-expanded"
             >
-              <span>{activeItem?.title ?? '未再生'}</span>
+              <span className="dock-title-text">
+                <span className="dock-title">{activeItem?.title ?? '未再生'}</span>
+                <span className="dock-hint">
+                  {isDockExpanded ? 'タップで閉じる' : prefs.shuffle ? 'シャッフル中 · タップで操作' : 'タップでシーク・シャッフル'}
+                </span>
+              </span>
+              <span className="dock-chevron" aria-hidden="true">
+                <ChevronUpIcon />
+              </span>
             </button>
             <button
               type="button"
-              className="secondary icon-button"
+              className="dock-action icon-button"
               onClick={playPrevious}
-              disabled={!hydrated || selectedItems.length === 0}
+              disabled={playerDisabled}
               aria-label="前へ"
             >
               <PreviousIcon />
             </button>
             <button
               type="button"
-              className="primary play-button icon-button"
+              className="play-button icon-button"
               onClick={() => {
                 if (playbackState === 'playing') {
                   pausePlayback();
@@ -679,23 +847,23 @@ export default function App() {
                   void resumePlayback();
                 }
               }}
-              disabled={!hydrated || selectedItems.length === 0}
+              disabled={playerDisabled}
               aria-label={playbackState === 'playing' ? '一時停止' : '再生'}
             >
               {playbackState === 'playing' ? <PauseIcon /> : <PlayIcon />}
             </button>
             <button
               type="button"
-              className="secondary icon-button"
+              className="dock-action icon-button"
               onClick={playNext}
-              disabled={!hydrated || selectedItems.length === 0}
+              disabled={playerDisabled}
               aria-label="次へ"
             >
               <NextIcon />
             </button>
           </div>
         </div>
-      ) : null}
+      </div>
     </div>
   );
 }
