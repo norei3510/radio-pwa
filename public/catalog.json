@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-29T03:29:20.340Z",
+  "updatedAt": "2026-11-01T09:50:58.834Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,22 @@
     }
   ],
   "items": [
+    {
+      "id": "5c3e91fb598e1c1f55ee91ed",
+      "title": "ニュース！オモコロウォッチ！193「Minor scale」",
+      "createdAt": "2026-10-31T15:00:25.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/595712/",
+      "url": "https://omocoro.heteml.net/radio/watch/watch192.mp3"
+    },
+    {
+      "id": "b47fe5a5b58ae87e6ba340ae",
+      "title": "【336】ラジオ・モンゴルナイトフィーバー  「俺たちの爆走でワンダフルな1日」",
+      "createdAt": "2026-10-30T15:01:22.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/595733/",
+      "url": "https://omocoro.heteml.net/radio/mongol/336/20261031.mp3"
+    },
     {
       "id": "41591c148d65fa8f038373ae",
       "title": "【539】ARuFa・恐山の匿名ラジオ「雑学をぶつけ合え！大うんちくバトル！！」",
