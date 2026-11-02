@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-01T09:50:58.834Z",
+  "updatedAt": "2026-11-02T10:11:12.938Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -22,7 +22,7 @@
       "createdAt": "2026-10-31T15:00:25.000Z",
       "playlistId": "watch",
       "sourceUrl": "https://omocoro.jp/radio/595712/",
-      "url": "https://omocoro.heteml.net/radio/watch/watch192.mp3"
+      "url": "https://omocoro.heteml.net/radio/watch/watch193.mp3"
     },
     {
       "id": "b47fe5a5b58ae87e6ba340ae",
