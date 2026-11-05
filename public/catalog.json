@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02T10:11:12.938Z",
+  "updatedAt": "2026-11-05T09:58:25.975Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,14 @@
     }
   ],
   "items": [
+    {
+      "id": "a5ad4db33e8fad880038e5ce",
+      "title": "【540】ARuFa・恐山の匿名ラジオ「ようやく気付いた！『早起き』って最高なのかも！？」",
+      "createdAt": "2026-11-04T15:00:13.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/596405/",
+      "url": "https://omocoro.heteml.net/radio/tokumei/5d40.mp3"
+    },
     {
       "id": "5c3e91fb598e1c1f55ee91ed",
       "title": "ニュース！オモコロウォッチ！193「Minor scale」",
