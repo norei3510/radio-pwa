@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-05T09:58:25.975Z",
+  "updatedAt": "2026-11-08T09:39:06.723Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,22 @@
     }
   ],
   "items": [
+    {
+      "id": "edf92f7dc3585d0c5903a672",
+      "title": "ニュース！オモコロウォッチ！194「遊ちゃんの『遊』ってそういう意味だったのねん」",
+      "createdAt": "2026-11-07T15:00:33.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/596600/",
+      "url": "https://omocoro.heteml.net/radio/watch/watch194.mp3"
+    },
+    {
+      "id": "284258fb5eac6519d26dcd91",
+      "title": "【337】ラジオ・モンゴルナイトフィーバー  「穏やかな日々に人くいバッタが」",
+      "createdAt": "2026-11-06T15:00:35.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/596624/",
+      "url": "https://omocoro.heteml.net/radio/mongol/337/20261107.mp3"
+    },
     {
       "id": "a5ad4db33e8fad880038e5ce",
       "title": "【540】ARuFa・恐山の匿名ラジオ「ようやく気付いた！『早起き』って最高なのかも！？」",
