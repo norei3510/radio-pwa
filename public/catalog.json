@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-08T09:39:06.723Z",
+  "updatedAt": "2026-11-12T10:24:52.906Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,14 @@
     }
   ],
   "items": [
+    {
+      "id": "0acc681198a05eef938daa9d",
+      "title": "【541】ARuFa・恐山の匿名ラジオ「検証！『バタコさんになりきれ』と言われた人は質問にどう答えるのか？」",
+      "createdAt": "2026-11-11T15:00:09.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/597716/",
+      "url": "https://omocoro.heteml.net/radio/tokumei/54es1u.mp3"
+    },
     {
       "id": "edf92f7dc3585d0c5903a672",
       "title": "ニュース！オモコロウォッチ！194「遊ちゃんの『遊』ってそういう意味だったのねん」",
