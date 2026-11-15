@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T10:24:52.906Z",
+  "updatedAt": "2026-11-15T10:02:12.001Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,22 @@
     }
   ],
   "items": [
+    {
+      "id": "841403fa7459df6c5b6adcf3",
+      "title": "ニュース！オモコロウォッチ！195「ピザにパイナップルをブチまけるがごとき思想!!!」",
+      "createdAt": "2026-11-14T15:00:43.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/597744/",
+      "url": "https://omocoro.heteml.net/radio/watch/watch195.mp3"
+    },
+    {
+      "id": "d6acffd09592ccada7b65818",
+      "title": "【338】ラジオ・モンゴルナイトフィーバー  「友達のレイピアが出てきてしまいました」",
+      "createdAt": "2026-11-13T15:00:26.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/597895/",
+      "url": "https://omocoro.heteml.net/radio/mongol/338/20261114.mp3"
+    },
     {
       "id": "0acc681198a05eef938daa9d",
       "title": "【541】ARuFa・恐山の匿名ラジオ「検証！『バタコさんになりきれ』と言われた人は質問にどう答えるのか？」",
