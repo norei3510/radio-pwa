@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-15T10:02:12.001Z",
+  "updatedAt": "2026-11-19T10:50:29.146Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,14 @@
     }
   ],
   "items": [
+    {
+      "id": "5f97beaa57afefcf0ada0a6e",
+      "title": "【542】ARuFa・恐山の匿名ラジオ「外部ゲストを呼んでみよう！VTuber『ぽこピー』！」",
+      "createdAt": "2026-11-18T15:00:10.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/598693/",
+      "url": "https://omocoro.heteml.net/radio/tokumei/y5o4s2.mp3"
+    },
     {
       "id": "841403fa7459df6c5b6adcf3",
       "title": "ニュース！オモコロウォッチ！195「ピザにパイナップルをブチまけるがごとき思想!!!」",
