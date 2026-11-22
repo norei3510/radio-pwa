@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-19T10:50:29.146Z",
+  "updatedAt": "2026-11-22T10:26:30.215Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,22 @@
     }
   ],
   "items": [
+    {
+      "id": "fdc815d7822cee10a9af48fd",
+      "title": "ニュース！オモコロウォッチ！196「モグラは囮」",
+      "createdAt": "2026-11-21T15:00:07.000Z",
+      "playlistId": "watch",
+      "sourceUrl": "https://omocoro.jp/radio/598925/",
+      "url": "https://omocoro.heteml.net/radio/watch/watch196.mp3"
+    },
+    {
+      "id": "839db7a64f76a964d34f6e72",
+      "title": "【339】ラジオ・モンゴルナイトフィーバー  「渋谷に呼ばれていないんだよ」",
+      "createdAt": "2026-11-20T15:00:48.000Z",
+      "playlistId": "mongol",
+      "sourceUrl": "https://omocoro.jp/radio/598963/",
+      "url": "https://omocoro.heteml.net/radio/mongol/339/20261121.mp3"
+    },
     {
       "id": "5f97beaa57afefcf0ada0a6e",
       "title": "【542】ARuFa・恐山の匿名ラジオ「外部ゲストを呼んでみよう！VTuber『ぽこピー』！」",
