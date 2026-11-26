@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-22T10:26:30.215Z",
+  "updatedAt": "2026-11-26T11:37:55.477Z",
   "playlists": [
     {
       "id": "tokumei",
@@ -16,6 +16,14 @@
     }
   ],
   "items": [
+    {
+      "id": "584b6750f6d3cf843cfec242",
+      "title": "【543】ARuFa・恐山の匿名ラジオ「結婚式や葬式以外の『新しい式』を考えよう！！」",
+      "createdAt": "2026-11-25T15:00:32.000Z",
+      "playlistId": "tokumei",
+      "sourceUrl": "https://omocoro.jp/radio/599453/",
+      "url": "https://omocoro.heteml.net/radio/tokumei/543hi.mp3"
+    },
     {
       "id": "fdc815d7822cee10a9af48fd",
       "title": "ニュース！オモコロウォッチ！196「モグラは囮」",
